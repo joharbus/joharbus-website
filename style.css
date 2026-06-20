@@ -1,0 +1,314 @@
+/* ===========================================================
+   JoharBus — shared styles
+   Design language: a bus route's stop-timeline, the same visual
+   the app itself uses to show stops on a route. The whole page
+   is built as a single vertical route line; each section is a
+   stop along it.
+   =========================================================== */
+
+:root {
+  --green-deep: #2E6B4F;
+  --green-bright: #4F9A6E;
+  --green-soft: #DCEEE2;
+  --mint-bg: #F2F8F1;
+  --ink: #1B2A22;
+  --ink-soft: #4A5C50;
+  --marigold: #E08A3C;
+  --marigold-soft: #FBE7D2;
+  --paper: #FFFFFF;
+  --line: #C9DECE;
+
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--mint-bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--green-deep); text-decoration: none; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--green-deep);
+}
+
+.logo svg { width: 30px; height: 30px; flex-shrink: 0; }
+
+.header-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+}
+.header-link:hover { border-bottom-color: var(--green-deep); color: var(--green-deep); }
+
+/* ---------- Route line (the signature element) ---------- */
+.route {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.route::before {
+  content: "";
+  position: absolute;
+  left: 35px;
+  top: 8px;
+  bottom: 60px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--line) 0, var(--line) 6px, transparent 6px, transparent 12px
+  );
+}
+
+@media (max-width: 600px) {
+  .route::before { left: 27px; }
+}
+
+.stop {
+  position: relative;
+  margin-left: 64px;
+  margin-bottom: 56px;
+}
+
+@media (max-width: 600px) {
+  .stop { margin-left: 48px; }
+}
+
+.stop::before {
+  content: "";
+  position: absolute;
+  left: -64px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--green-bright);
+}
+
+@media (max-width: 600px) {
+  .stop::before { left: -48px; width: 12px; height: 12px; }
+}
+
+.stop.origin::before { background: var(--green-deep); border-color: var(--green-deep); }
+.stop.destination::before { background: var(--marigold); border-color: var(--marigold); }
+
+.stop-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 6px;
+}
+
+.stop.destination .stop-label { color: var(--marigold); }
+
+/* ---------- Hero card (styled like an in-app route card) ---------- */
+.hero-card {
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 32px 28px;
+  box-shadow: 0 1px 3px rgba(27,42,34,0.08);
+}
+
+.hero-card h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.hero-card p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+  max-width: 480px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green-deep);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 26px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.cta-button:hover { background: #255840; transform: translateY(-1px); }
+.cta-button svg { width: 20px; height: 20px; }
+
+.cta-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Section content ---------- */
+.stop h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.stop p { color: var(--ink-soft); margin: 0 0 14px; }
+
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.how-step {
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.how-step .num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--green-bright);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.how-step strong { display: block; margin-bottom: 2px; color: var(--ink); }
+.how-step span { color: var(--ink-soft); font-size: 0.94rem; }
+
+.badge-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 8px;
+}
+
+.badge.verified { background: var(--green-soft); color: var(--green-deep); }
+.badge.unverified { background: var(--marigold-soft); color: #9C5A1E; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 24px 40px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.site-footer .foot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.foot-links { display: flex; gap: 20px; font-size: 0.9rem; }
+.foot-links a { color: var(--ink-soft); }
+.foot-links a:hover { color: var(--green-deep); }
+
+.foot-note {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.made-with {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 18px;
+}
+
+/* ---------- Privacy policy page ---------- */
+.policy {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.policy h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin: 8px 0 4px;
+}
+
+.policy .updated {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+.policy h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 32px 0 10px;
+  color: var(--green-deep);
+}
+
+.policy p, .policy li { color: var(--ink-soft); }
+.policy ul { padding-left: 20px; }
