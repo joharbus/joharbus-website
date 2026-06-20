@@ -6,8 +6,8 @@
 
 **India's community-powered local bus timing app — starting in Dumka, Jharkhand.**
 
-[![Live Site](https://img.shields.io/badge/website-joharbus.in-2E6B4F?style=flat-square)](https://joharbus.in)
-[![Play Store](https://img.shields.io/badge/Android-Get%20it%20on%20Play%20Store-4F9A6E?style=flat-square&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=com.joharbus.app)
+[![Live Site](https://img.shields.io/badge/website-joharbus.in-2E6B4F?style=flat-square)](https://joharbus.github.io/joharbus-website/index.html)
+[![Play Store](https://img.shields.io/badge/Android-Get%20it%20on%20Play%20Store-4F9A6E?style=flat-square&logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=com.joharbus.android)
 [![Made in India](https://img.shields.io/badge/made%20with%20care%20in-India%20🇮🇳-E08A3C?style=flat-square)](#)
 
 </div>
@@ -44,7 +44,7 @@ Plain HTML and CSS — no build step, no framework, no dependencies.
 🤝 **Community verified** — anyone can submit a route; the community confirms it before it's marked verified.
 🚩 **Report wrong info** — flag errors directly from the app.
 
-[**Download JoharBus on Google Play →**](https://play.google.com/store/apps/details?id=com.joharbus.app)
+[**Download JoharBus on Google Play →**](https://play.google.com/store/apps/details?id=com.joharbus.android)
 
 ## Contact
 
