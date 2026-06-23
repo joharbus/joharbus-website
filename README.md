@@ -48,7 +48,7 @@ Plain HTML and CSS — no build step, no framework, no dependencies.
 
 ## Contact
 
-Found an issue with the website, or have a route to suggest? Reach out at **joharbusofficial@gmail.com**.
+Found an issue with the website, or have a route to suggest? Reach out at **contact@joharbus.in**.
 
 ---
 
